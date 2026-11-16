@@ -1,0 +1,75 @@
+# Environment files with sensitive keys
+.env
+.env.*
+!.env.example
+!.env.api_gui_long
+!.env.api_gui_short
+!.env.api_long
+!.env.api_short
+!.env.debug_long
+!.env.debug_short
+!.env.local_all_long
+!.env.local_long
+!.env.local_short
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+*.old
+
+# Local runtime / outputs
+world_state.json
+*.sqlite3
+*.db
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# Coverage / test artifacts
+.coverage
+.pytest_cache/
+htmlcov/
