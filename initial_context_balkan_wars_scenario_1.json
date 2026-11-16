@@ -1,0 +1,156 @@
+{
+  "round": 0,
+  "scenario_id": "balkan_wars_1912_first_war",
+  "scenario_title": "Balkan Wars I - Anti-Ottoman Coalition",
+  "timeframe": "Autumn 1912",
+  "context_anchor": "First Balkan War, Autumn 1912 — Balkan League coordinated offensive against Ottoman Europe",
+  "actors": {
+    "Serbia": { "risk_tolerance": "high" },
+    "Bulgaria": { "risk_tolerance": "high" },
+    "Greece": { "risk_tolerance": "medium" },
+    "Montenegro": { "risk_tolerance": "medium" },
+    "Ottoman Empire": { "risk_tolerance": "medium" }
+  },
+  "simulation_override": {
+    "note": "Values below deviate from historical record for simulation balance",
+    "relationship_weights_are_synthetic": true,
+    "risk_tolerance_presets": {
+      "high": "aggressive action preference, low de-escalation bias",
+      "medium": "moderate initiative, responds to signals"
+    }
+  },
+  "relationship_baseline": {
+    "Serbia-Bulgaria": 0.55,
+    "Serbia-Greece": 0.5,
+    "Serbia-Montenegro": 0.75,
+    "Bulgaria-Greece": 0.4,
+    "Bulgaria-Montenegro": 0.35,
+    "Greece-Montenegro": 0.45,
+    "Serbia-Ottoman Empire": -0.8,
+    "Bulgaria-Ottoman Empire": -0.85,
+    "Greece-Ottoman Empire": -0.75,
+    "Montenegro-Ottoman Empire": -0.7
+  },
+  "agent_policy": {
+    "decision_style": "rules_first",
+    "narrative_mode": "deck_based",
+    "tone_default": "neutral",
+    "private_message_limit_chars": 180
+  },
+  "goal_model": {
+    "decision_weights": {
+      "goal_alignment": 0.35,
+      "situation_fit": 0.35,
+      "relationship_fit": 0.2,
+      "constraint_compliance": 0.1
+    },
+    "actors": {
+      "Serbia": {
+        "goal_tags": {
+          "territorial_gain": 0.35,
+          "deterrence": 0.25,
+          "alliance_cohesion": 0.2,
+          "economic_stability": 0.1,
+          "de_escalation": 0.1
+        }
+      },
+      "Bulgaria": {
+        "goal_tags": {
+          "territorial_gain": 0.4,
+          "deterrence": 0.25,
+          "alliance_cohesion": 0.15,
+          "economic_stability": 0.1,
+          "de_escalation": 0.1
+        }
+      },
+      "Greece": {
+        "goal_tags": {
+          "territorial_gain": 0.2,
+          "deterrence": 0.2,
+          "alliance_cohesion": 0.25,
+          "economic_stability": 0.2,
+          "de_escalation": 0.15
+        }
+      },
+      "Montenegro": {
+        "goal_tags": {
+          "territorial_gain": 0.2,
+          "deterrence": 0.2,
+          "alliance_cohesion": 0.3,
+          "economic_stability": 0.1,
+          "de_escalation": 0.2
+        }
+      },
+      "Ottoman Empire": {
+        "goal_tags": {
+          "territorial_gain": 0.35,
+          "deterrence": 0.25,
+          "alliance_cohesion": 0.1,
+          "economic_stability": 0.1,
+          "de_escalation": 0.2
+        }
+      }
+    },
+    "action_goal_alignment": {
+      "request_military_alliance": {
+        "alliance_cohesion": 0.9,
+        "deterrence": 0.5,
+        "de_escalation": 0.2
+      },
+      "publish_military_alliance": {
+        "alliance_cohesion": 1.0,
+        "deterrence": 0.6
+      },
+      "declare_war": {
+        "deterrence": 0.8,
+        "territorial_gain": 0.7,
+        "de_escalation": -0.8
+      },
+      "sanction": {
+        "deterrence": 0.5,
+        "economic_stability": -0.3
+      },
+      "trade_agreement": {
+        "economic_stability": 0.8,
+        "de_escalation": 0.5
+      },
+      "present_peace_agreement": {
+        "de_escalation": 1.0,
+        "economic_stability": 0.3
+      },
+      "accept_request": {
+        "alliance_cohesion": 0.7,
+        "de_escalation": 0.4
+      },
+      "reject_request": {
+        "alliance_cohesion": -0.5,
+        "deterrence": 0.2
+      }
+    }
+  },
+  "rules_brief": {
+    "allowed_actions": [
+      "request_military_alliance",
+      "present_peace_agreement",
+      "send_message",
+      "publish_military_alliance",
+      "declare_war",
+      "trade_agreement",
+      "sanction",
+      "accept_request",
+      "reject_request"
+    ],
+    "weight_effects": {
+      "publish_military_alliance": 1.0,
+      "declare_war": -1.0,
+      "trade_agreement": 0.3,
+      "sanction": -0.4,
+      "accept_present_peace_agreement": 0.0
+    }
+  },
+  "ui_hints": {
+    "show_round_banner": true,
+    "show_relationship_status": true,
+    "show_rationale_code": true
+  }
+}
